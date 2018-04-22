@@ -14,7 +14,7 @@ var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoNewsScraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-news-scraper";
 
 // Initialize Express
 var app = express();
@@ -35,7 +35,7 @@ app.use(express.static("public"));
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://127.0.0.1/mongoNewsScraper")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mongo-news-scraper")
 
 // Routes
 
